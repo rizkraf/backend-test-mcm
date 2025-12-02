@@ -2,11 +2,11 @@ const Validator = require('validatorjs');
 
 const validatorRules = {
   create: {
-    name: 'required|string|min:3|max:100',
+    name: 'required|string|min:1|max:100',
     location: 'required|string|min:5|max:255',
   },
   update: {
-    name: 'string|min:3|max:100',
+    name: 'string|min:1|max:100',
     location: 'string|min:5|max:255',
   }
 };
@@ -14,7 +14,7 @@ const validatorRules = {
 const customMessages = {
   'name.required': 'Studio name is required',
   'name.string': 'Studio name must be a string',
-  'name.min': 'Studio name must be at least 3 characters',
+  'name.min': 'Studio name must be at least 1 characters',
   'name.max': 'Studio name must not exceed 100 characters',
   'location.required': 'Location is required',
   'location.string': 'Location must be a string',

@@ -6,6 +6,7 @@ var db = require('./models/index')
 
 var indexRouter = require('./routes/index');
 var studiosRouter = require('./routes/studios');
+var filmsRouter = require('./routes/films');
 
 var app = express();
 
@@ -28,5 +29,6 @@ app.use(async (req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/studios', studiosRouter);
+app.use('/films', filmsRouter);
 
 module.exports = app;

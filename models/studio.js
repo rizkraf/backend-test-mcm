@@ -5,7 +5,12 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Studio extends Model {
     static associate(models) {
-      // Define associations here if needed
+      Studio.hasMany(models.Film, {
+        foreignKey: 'studioId',
+        as: 'films',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
 
@@ -25,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Studio name cannot be empty'
         },
         len: {
-          args: [3, 100],
-          msg: 'Studio name must be between 3 and 100 characters'
+          args: [1, 100],
+          msg: 'Studio name must be between 1 and 100 characters'
         }
       }
     },
@@ -38,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Location cannot be empty'
         },
         len: {
-          args: [5, 255],
-          msg: 'Location must be between 5 and 255 characters'
+          args: [1, 255],
+          msg: 'Location must be between 1 and 255 characters'
         }
       }
     },
