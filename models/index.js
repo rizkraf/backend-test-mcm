@@ -6,8 +6,25 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+let config = require(__dirname + '/../config/config.js')[env];
 const db = {};
+
+// Replace environment variable placeholders with actual values
+const resolveConfig = (configObj) => {
+  const resolved = {};
+  for (const key in configObj) {
+    const value = configObj[key];
+    if (typeof value === 'string' && value.startsWith('${') && value.endsWith('}')) {
+      const envVar = value.slice(2, -1);
+      resolved[key] = process.env[envVar];
+    } else {
+      resolved[key] = value;
+    }
+  }
+  return resolved;
+};
+
+config = resolveConfig(config);
 
 let sequelize;
 if (config.use_env_variable) {
