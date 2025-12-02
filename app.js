@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var studiosRouter = require('./routes/studios');
 var filmsRouter = require('./routes/films');
 var showtimesRouter = require('./routes/showtimes');
+var ticketsRouter = require('./routes/tickets');
 
 var app = express();
 
@@ -32,5 +33,6 @@ app.use('/', indexRouter);
 app.use('/studios', studiosRouter);
 app.use('/films', filmsRouter);
 app.use('/showtimes', showtimesRouter);
+app.use('/tickets', ticketsRouter);
 
 module.exports = app;
