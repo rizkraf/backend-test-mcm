@@ -5,7 +5,7 @@ var logger = require('morgan');
 var db = require('./models/index')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var studiosRouter = require('./routes/studios');
 
 var app = express();
 
@@ -27,5 +27,6 @@ app.use(async (req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/studios', studiosRouter);
 
 module.exports = app;
