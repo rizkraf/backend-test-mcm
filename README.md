@@ -22,7 +22,7 @@ Before you begin, ensure you have installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rizkraf/backend-test-mcm.git
 cd backend-test-mcm
 ```
 
